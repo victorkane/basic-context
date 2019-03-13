@@ -1,4 +1,4 @@
-### Switch from props drilling to context
+## Switch from props drilling to context
 
 So the process of switching to context in order to stave off "Props Drilling" is, 
 
@@ -17,7 +17,7 @@ then, in the switch to hooks, you don't need the wrapper hell or class component
 
 Based on https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87 (video at https://www.youtube.com/watch?time_continue=16&v=hP0qWUvr2SM, no code).
 
-### Create React App
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
