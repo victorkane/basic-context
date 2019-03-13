@@ -11,9 +11,9 @@ So the process of switching to context in order to stave off "Props Drilling" is
 
 This does lead to "Wrapper Hell" but is still cleaner, less confusing and more maintainable than "Props Drilling".
 
-so we show the improvement just with using context
+So we show the improvement just with using context. See branch `pre-hooks`.
 
-then, in the switch to hooks, you don't need the wrapper hell or class components!
+Then, in the switch to hooks, you don't need the wrapper hell or class components! See comments in branch `with-hooks` and `master`
 
 Based on https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87 (video at https://www.youtube.com/watch?time_continue=16&v=hP0qWUvr2SM, no code).
 
