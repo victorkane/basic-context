@@ -3,14 +3,6 @@ import './App.css'
 
 const AppContext = React.createContext()
 
-class App extends Component {
-  render() {
-    return (
-      <Red />
-    )
-  }
-}
-
 class AppProvider extends Component {
   state = {
     number: 10,
@@ -19,9 +11,21 @@ class AppProvider extends Component {
     }
   }
   render() {
-    return <AppContext.Provider value={this.state}>
-      {this.props.children}
-    </AppContext.Provider>
+    return (
+      <AppContext.Provider value={this.state}>
+        {this.props.children}
+      </AppContext.Provider>
+    )
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <AppProvider>
+        <Red />
+      </AppProvider>
+    )
   }
 }
 
@@ -42,17 +46,13 @@ const Blue = () => (
   </div>
 )
 
-class Red extends Component {
-  render() {
-    return  <AppProvider> 
-        <div className="red">
-          <AppContext.Consumer>
-            {(context) => context.number}
-          </AppContext.Consumer>
-          <Blue />
-        </div>
-    </AppProvider>
-  }
-}
+const Red = () => (
+  <div className="red">
+    <AppContext.Consumer>
+      {(context) => context.number}
+    </AppContext.Consumer>
+    <Blue />
+  </div>
+)
 
 export default App
