@@ -1,20 +1,14 @@
-import React, { useContext } from 'react'
-// import React, { Component, useContext } from 'react'
+import React, { Component, useContext } from 'react'
 import './App.css'
 
-const AppContext = React.createContext({
-    number: 10,
-  /*
-    inc: () => {
-      this.setState({number: this.state.number + 1})
-    }
-   */
-})
+const AppContext = React.createContext()
 
 /*
- * We don't need no provider or state, it's all inside AppContext!
+ * Now we DO need AppProvider in order to be container for state
+ * 
+ * Note that we could do away with Class Component
+ *     and replace it with a function component if we useState()
  */
-/*
 class AppProvider extends Component {
   state = {
     number: 10,
@@ -30,10 +24,9 @@ class AppProvider extends Component {
     )
   }
 }
-*/
 
 /*
- * We don't need no class component
+ * We don't need no class component for App
  */
 /*
 class App extends Component {
@@ -48,7 +41,17 @@ class App extends Component {
 */
 
 // App now function component
-const App = () => <Red />
+// const App = () => <Red />
+
+class App extends Component {
+  render() {
+    return (
+      <AppProvider>
+        <Red />
+      </AppProvider>
+    )
+  }
+}
 
 const Green = () => {
   // useContext() replaces the clunky Consumer wrapper
@@ -62,13 +65,10 @@ const Green = () => {
 
 const Blue = () => {
   // useContext() replaces the clunky Consumer wrapper
-  // no data, since event handler cannot be used with immutable context data
-  // const context = useContext(AppContext)
+  const context = useContext(AppContext)
   return (
     <div className="blue">
-    { /* including data to do away with Provider only works with immutable data */ }
-    { /* <button onClick={context.inc}>INC</button> */ }
-      <button>INC</button>
+      <button onClick={context.inc}>INC</button>
       <Green />
     </div>
   )
