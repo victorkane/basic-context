@@ -1,3 +1,24 @@
+### Switch from props drilling to context
+
+So the process of switching to context in order to stave off "Props Drilling" is, 
+
+* create context instance
+* make the state container component be the context provider
+    * state can include event handlers
+    * state container component is kind of a "Vuex Store"
+* top level "presentational" class wraps hierarchy in provider
+* each child takes what they need
+
+This does lead to "Wrapper Hell" but is still cleaner, less confusing and more maintainable than "Props Drilling".
+
+so we show the improvement just with using context
+
+then, in the switch to hooks, you don't need the wrapper hell or class components!
+
+Based on https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87 (video at https://www.youtube.com/watch?time_continue=16&v=hP0qWUvr2SM, no code).
+
+### Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
