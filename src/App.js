@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 
-const AppContext = React.createContext()
-
 class App extends Component {
   render() {
     return (
@@ -11,7 +9,19 @@ class App extends Component {
   }
 }
 
-class AppProvider extends Component {
+const Green = (props) => (
+  <div className="green">
+        {props.number}
+  </div>
+)
+
+const Blue = (props) => (
+  <div className="blue">
+    <Green number={props.number} />
+  </div>
+)
+
+class Red extends Component {
   state = {
     number: 10,
     inc: () => {
@@ -19,39 +29,12 @@ class AppProvider extends Component {
     }
   }
   render() {
-    return <AppContext.Provider value={this.state}>
-      {this.props.children}
-    </AppContext.Provider>
-  }
-}
-
-const Green = () => (
-  <div className="green">
-     <AppContext.Consumer>
-        {(context) => context.number}
-      </AppContext.Consumer>
-  </div>
-)
-
-const Blue = () => (
-  <div className="blue">
-    <AppContext.Consumer>
-        {(context) => <button onClick={context.inc}>INC</button>}
-      </AppContext.Consumer>
-    <Green />
-  </div>
-)
-
-class Red extends Component {
-  render() {
-    return  <AppProvider> 
-        <div className="red">
-          <AppContext.Consumer>
-            {(context) => context.number}
-          </AppContext.Consumer>
-          <Blue />
-        </div>
-    </AppProvider>
+    return (
+      <div className="red">
+        {this.state.number}
+        <Blue number={this.state.number} />
+      </div>
+    )
   }
 }
 

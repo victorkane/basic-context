@@ -1,3 +1,7 @@
+## Starting out with "Props Drilling" version
+
+In branch `pre-context` you can see the original version of the app, using Props Drilling even though the component `<Blue>` does not need the prop, it only needs it to pass it on to component `<Green>`.
+
 ## Switch from props drilling to context
 
 So the process of switching to context in order to stave off "Props Drilling" is, 
@@ -9,11 +13,9 @@ So the process of switching to context in order to stave off "Props Drilling" is
 * top level "presentational" class wraps hierarchy in provider
 * each child takes what they need
 
-This does lead to "Wrapper Hell" but is still cleaner, less confusing and more maintainable than "Props Drilling".
+This does lead to "Wrapper Hell" but is still cleaner, less confusing and more maintainable than "Props Drilling", especially when the number of nested components increases, and you want to reuse any components.
 
-so we show the improvement just with using context
-
-then, in the switch to hooks, you don't need the wrapper hell or class components!
+So we show the improvement just with using context, and then, in the switch to hooks, you don't need the wrapper hell or class components!
 
 Based on https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87 (video at https://www.youtube.com/watch?time_continue=16&v=hP0qWUvr2SM, no code).
 
