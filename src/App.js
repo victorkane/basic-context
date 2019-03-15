@@ -47,7 +47,11 @@ class App extends Component {
   render() {
     return (
       <AppProvider>
-        <Red />
+        <div class="col-sm-4" />
+        <div class="container col-sm-4">
+          <Red />
+        </div>
+        <div class="col-sm-4" />
       </AppProvider>
     )
   }
