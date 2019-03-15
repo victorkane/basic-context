@@ -72,7 +72,7 @@ const Blue = () => {
   const context = useContext(AppContext)
   return (
     <div className="blue">
-      <button onClick={context.inc}>INC</button>
+      <button className="btn btn-primary" onClick={context.inc}>INC</button>
       <Green />
     </div>
   )

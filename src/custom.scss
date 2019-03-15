@@ -1,0 +1,15 @@
+// Override default variables before the import
+$font-stack:    Helvetica, sans-serif;
+$primary: lightgrey; 
+
+body {
+    font: 100% $font-stack;
+      color: $primary;
+    }
+
+/* $body-bg: #c00; */
+$body-color: $primary;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
